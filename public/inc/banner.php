@@ -5,7 +5,7 @@
 			<div id="carouselBanner" class="carousel slide mb-5 mt-5" data-ride="carousel">
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="public/img/1.jpg" alt="">
+						<img class="d-block img-fluid" src="public/img/6.jpg" alt="">
 					</div>
 					<div class="carousel-item">
 						<img class="d-block img-fluid" src="public/img/2.jpg" alt="">
@@ -20,7 +20,7 @@
 						<img class="d-block img-fluid" src="public/img/5.jpg" alt="">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="public/img/6.jpg" alt="">
+						<img class="d-block img-fluid" src="public/img/1.jpg" alt="">
 					</div>
 					<div class="carousel-item">
 						<img class="d-block img-fluid" src="public/img/7.jpg" alt="">

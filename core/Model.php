@@ -32,16 +32,16 @@ function isConnected()
 	}
 }
 
-function getNews()
+function getFilms()
 {
 	global $db;
-	$news = array();
+	$films = array();
 
-	$req = $db->query('SELECT * FROM articles ORDER BY date');
+	$req = $db->query('SELECT * FROM film ORDER BY id_film LIMIT 15');
 
 	while ($data = $req->fetch()) {
-		$news[] = $data;
+		$films[] = $data;
 	}
-	return $news;
+	return $films;
 
 }
