@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="My Cinema">
+	<meta name="keywords" content="Cinema">
+	<meta name="author" content="Mickael Fardini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Cinema</title>
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+
+	<link rel="stylesheet" href="public/css/style.css">
+
+</head>
