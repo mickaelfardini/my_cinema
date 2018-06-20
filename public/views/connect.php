@@ -6,7 +6,7 @@ include('inc/navbar.php');
 <?php
 if (isset($_COOKIE['username'])) {
 	setcookie ("username", "", time() - 3);
-	header('Location: ./index.php?page=news');
+	header('Location: index.html');
 	return true;
 }
 ?>
@@ -17,7 +17,7 @@ if (isset($_COOKIE['username'])) {
 			<?php
 			if(isset($_POST["username"]) && isset($_POST["password"])){
 				if(connect($postArray = array($_POST['username'], $_POST['password']))) {
-					header('Location: ./index.php?page=news');
+					header('Location: index.html');
 				}else{ echo "Username ou Mot de passe incorrect";	}
 			} ?>
 			<form action="" method="POST" class="mb-5">

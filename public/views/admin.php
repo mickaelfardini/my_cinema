@@ -1,9 +1,10 @@
 <?php
 if (!isConnected() || !isAdmin($_COOKIE['username'])) {
-	header('Location: ./index.php?page=news');
+	header('Location: index.html');
 }
 
 include('inc/header.php');
+include('inc/navbar.php');
 include('inc/banner.php');
 ?>
 
@@ -18,26 +19,24 @@ include('inc/banner.php');
 		<th scope="col">#</th>
 		<th scope="col">Titre</th>
 		<th scope="col">Contenu</th>
-		<th scope="col">Url de l\'image</th>
 		<th scope="col">Delete</th>
 		<th scope="col">Edit</th>
 		</tr>
 		</thead>
 		<tbody>';
 
-		foreach ($news as $key) {
+		foreach ($films as $key) {
 
 			echo '<tr>
-			<th scope="row">' . $key['id'] . '</th>
-			<td>' . $key['title'] . '</td>
-			<td>' . $key['content'] . '</td>
-			<td>' . $key['imgurl'] . '</td>
+			<th scope="row">' . $key['id_film'] . '</th>
+			<td>' . $key['titre'] . '</td>
+			<td>' . $key['resum'] . '</td>
 			<td>
 			<form method="post" action="">
-			<button type="submit" class="btn btn-primary" name="' . $key['id'] . '" id="' . $key['id'] . '">Delete</button></form></td>
+			<button type="submit" class="btn btn-primary" name="' . $key['id_film'] . '" id="' . $key['id_film'] . '">Delete</button></form></td>
 			<td>
-			<form method="post" action="index.php?page=edit">
-			<button type="submit" class="btn btn-primary" name="' . $key['id'] . '" id="' . $key['id'] . '">Edit</button></form></td>
+			<form method="post" action="edit.html">
+			<button type="submit" class="btn btn-primary" name="' . $key['id_film'] . '" id="' . $key['id_film'] . '">Edit</button></form></td>
 			</tr>';
 		}
 		echo '</tbody>
