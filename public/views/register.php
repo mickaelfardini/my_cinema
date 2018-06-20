@@ -40,6 +40,7 @@ if (isset($_COOKIE['username'])) {
 if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["password2"])){
 	if($_POST["password"] == $_POST["password2"]){
 		$postArray = array($_POST['username'], $_POST['password']);
+		// var_dump($postArray);
 		register($postArray);
 	} 
 }

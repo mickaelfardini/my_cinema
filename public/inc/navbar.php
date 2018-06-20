@@ -1,5 +1,5 @@
 		<body>
-			<div class="container">
+			<div class="container full">
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 					<a class="navbar-brand" href="index.html"><img src="./img/planet-512.png" width="30" height="30" class="d-inline-block align-top" alt="">My Cinema</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,14 +20,14 @@
 							<?php if(isConnected()) {
 								echo '
 							<li class="nav-item">
-								<a class="nav-link" href="./index.php?page=post">Upload</a>
+								<a class="nav-link" href="myfilms.html">Mes Films</a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'. $_COOKIE['username'] .'</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
 									if(isAdmin($_COOKIE['username'])) {
 									echo '				
-									<a class="dropdown-item" href="index.php?page=admin">Admin</a>';}
+									<a class="dropdown-item" href="admin.html">Admin</a>';}
 									echo '
 									<a class="dropdown-item" href="#">Another action</a>
 									<div class="dropdown-divider"></div>

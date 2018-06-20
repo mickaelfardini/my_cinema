@@ -9,7 +9,7 @@ include 'inc/banner.php';
 	<div class="container">
 		<div class="row">
 
-			<?php
+<!-- 			<?php
 			foreach ($films as $key) {
 				echo '
 				<div class="col-xs-12 col-sm-6 col-md-4">
@@ -21,6 +21,24 @@ include 'inc/banner.php';
 				</div>
 				</div>
 				';
+			}
+			?> -->
+			<?php
+			foreach ($films as $key)
+			{
+				echo "
+				<div class=\"col-xs-12 col-sm-6 col-md-4\">
+				<div class=\"card\">
+				<div class=\"card-header\">
+				" . $key['up_nom'] . "
+				</div>
+				<div class=\"card-body\">
+				<h5 class=\"card-title\">" . $key['titre'] . "</h5>
+				<p class=\"card-text\">" . substr($key['resum'], 0, 90) . "...</p>
+				<a href=\"#\" class=\"btn btn-primary\">Read More</a>
+				</div>
+				</div>
+				</div>";
 			}
 			?>
 		</div>
