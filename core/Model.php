@@ -38,7 +38,7 @@ function getFilms()
 	$films = array();
 
 	// $req = $db->query('SELECT * FROM film ORDER BY id_film LIMIT 15');
-	$req = $db->query('SELECT *, UPPER(genre.nom) AS up_nom FROM film, genre WHERE genre.id_genre = film.id_genre LIMIT 9');
+	$req = $db->query('SELECT *, UPPER(genre.nom) AS up_nom FROM film, genre WHERE genre.id_genre = film.id_genre ORDER BY RAND() LIMIT 9');
 
 	while ($data = $req->fetch()) {
 		$films[] = $data;
