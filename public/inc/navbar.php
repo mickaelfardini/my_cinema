@@ -17,39 +17,31 @@
 							<li class="nav-item">
 								<a class="nav-link" href="subs.html">Abonnements</a>
 							</li>
-							<?php if(isConnected()) {
-								echo '
-							<li class="nav-item">
-								<a class="nav-link" href="myfilms.html">Mes Films</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'. $_COOKIE['username'] .'</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
-									if(isAdmin($_COOKIE['username'])) {
-									echo '				
-									<a class="dropdown-item" href="admin.html">Admin</a>';}
-									echo '
-									<a class="dropdown-item" href="#">Another action</a>
-									<div class="dropdown-divider"></div>
-								</div>
-							</li>';} ?>
-
+						<?php if(isConnected()) { ?>
+						<li class="nav-item">
+							<a class="nav-link" href="myfilms.html">Mes Films</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_COOKIE['username']; ?></a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <?php
+								if(isAdmin($_COOKIE['username'])) { ?>
+								<a class="dropdown-item" href="admin.html">Admin</a> <?php } ?>
+								<a class="dropdown-item" href="#">Another action</a>
+								<div class="dropdown-divider"></div>
+							</div>
+						</li> <?php } ?>
 						</ul>
 					</div>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown nav-item">
-							<?php if(isConnected()) {
-								echo '
+							<?php if(isConnected()) { ?>
 								<a href="connect.html" class="btn btn-secondary">
 										Deconnexion
 									</a>';
-							}
-							else {
-								echo '
+							<?php }
+							else { ?>
 								<a href="register.html" class="mr-3"><small>Register Here</small></a>
-								<a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">Connexion<span class="caret"></span></a>';
-							} ?>
-							
+								<a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">Connexion<span class="caret"></span></a>				
 							<ul id="login-dp" class="dropdown-menu">
 								<li>
 									<div class="row">
@@ -68,7 +60,7 @@
 										</div>
 									</div>
 								</li>
-							</ul>
+							</ul> <?php } ?>
 						</li>
 					</ul>
 				</nav>

@@ -20,24 +20,24 @@ include('inc/banner.php');
 
 <div class="container">
 <?php
-foreach ($idFilms as $key) {
-	echo '<form method="post" action="">
+foreach ($idFilms as $key) { ?>
+	<form method="post" action="">
 		<div class="form-group">
 			<label for="id_film">ID :</label>
-			<input type="text" class="form-control disabled" name="id_film" value="' . $key['id_film'] . '">
+			<input type="text" class="form-control disabled" name="id_film" value="<?php echo $key['id_film']; ?>">
 		</div>
 		<div class="form-group">
 			<label for="titre">Titre :</label>
-			<input type="text" class="form-control" name="titre" value="' . $key['titre'] . '">
+			<input type="text" class="form-control" name="titre" value="<?php echo $key['titre']; ?>">
 		</div>
 		<div class="form-group">
 			<label for="resum">Contenu :</label>
-			<textarea name="resum" class="form-control" name="content" cols="30" rows="10">' . $key['resum'] . '</textarea>
+			<textarea name="resum" class="form-control" name="content" cols="30" rows="10"><?php echo $key['resum']; ?></textarea>
 		</div>
 
 		<button type="submit" class="btn btn-primary">Envoyer</button>
-	</form>';
-} ?>
+	</form>
+<?php } ?>
 </div>
 
 <?php
