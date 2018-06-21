@@ -34,7 +34,7 @@ function isConnected()
 
 function getFilms($title = null, string $gender = null,
 	int $year = null, int $time = null,
-	int $limit = null)
+	int $limit = null, bool $rand = false)
 {
 	global $db;
 	$films = array();
@@ -58,9 +58,13 @@ function getFilms($title = null, string $gender = null,
 	{
 		$query .= " AND film.duree_min <= :time";
 	}
+	if ($rand !== false)
+	{
+		$query .= " ORDER BY RAND()";
+	}
 	if ($limit !== null)
 	{
-		$query .= " ORDER BY RAND() LIMIT :limit";
+		$query .= " LIMIT :limit";
 	}
 	$req = $db->prepare($query);
 	if ($title !== null)

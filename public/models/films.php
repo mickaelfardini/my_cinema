@@ -18,5 +18,37 @@ function checkPost(array $request)
 	{
 		$time = null;
 	}
-	return getFilms($request['title'], $gender, $year, $time, $request['limit']);
+	return getFilms($request['title'], $gender, $year, $time/*, $request['limit']*/);
+}
+
+function getGender()
+{
+	global $db;
+	$gender = array();
+
+	$req = $db->prepare('SELECT nom FROM genre');
+	$req->execute();
+
+	while ($data = $req->fetch())
+	{
+		$gender[] = $data;
+	}
+
+	return $gender;
+}
+
+function getCount()
+{
+	global $db;
+	$count = array();
+
+	$req = $db->prepare();
+	$req->execute();
+
+	while ($data = $req->fetch())
+	{
+		$count[] = $data;
+	}
+
+	return $count;
 }

@@ -19,6 +19,10 @@ include 'inc/banner.php';
 						<label for="inputGender">Genre</label>
 						<select id="inputGender" name="gender" class="form-control">
 							<option selected value="">Genre</option>
+							<?php foreach ($gender as $key)
+							{ ?>
+							<option value="<?=$key['nom']?>"><?=$key['nom']?></option>
+						<?php } ?>
 						</select>
 					</div>
 				</div>
@@ -59,12 +63,13 @@ include 'inc/banner.php';
 		<?php } ?>
 		<div class="row">
 			<?php
+			echo "<pre> " . var_export($_GET, true) . "</pre>";
 			foreach ($films as $key)
-				{ ?>
+				{?>
 					<div class="col-xs-12 col-sm-6 col-md-4">
 						<div class="card">
 							<div class="card-header">
-								<?= $key['up_nom']; ?>
+								<?= $key['up_nom'] . " - <i>" . $key['duree_min'] . " min</i>"; ?>
 							</div>
 							<div class="card-body">
 								<h5 class="card-title text-truncate"><?= $key['titre']; ?></h5>
