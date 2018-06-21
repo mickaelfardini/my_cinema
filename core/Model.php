@@ -32,34 +32,61 @@ function isConnected()
 	}
 }
 
-function getFilms($title = null, $gender = "genre.nom",
-					$year = "film.annee_prod", $time = "film.duree_min",
-					$limit = 9)
+function getFilms($title = null, string $gender = null,
+	int $year = null, int $time = null,
+	int $limit = null)
 {
 	global $db;
 	$films = array();
-	$query = "SELECT *, UPPER(genre.nom), * AS up_nom
-		FROM film, genre, images 
-		WHERE genre.id_genre = film.id_genre
-		AND film.titre LIKE \"%" . $title .
-		"%\" AND genre.nom = " . $gender .
-		" AND film.annee_prod = " . $year .
-		" AND film.duree_min <= " . $time .
-		" ORDER BY RAND() LIMIT " . $limit;
-		// var_dump($query);
-	// $req = $db->query('SELECT * FROM film ORDER BY id_film LIMIT 15');
-	// $req = $db->prepare('SELECT *, UPPER(genre.nom) AS up_nom
-	// 	FROM film, genre 
-	// 	WHERE genre.id_genre = film.id_genre 
-	// 	AND film.titre = ?
-	// 	ORDER BY RAND() LIMIT 9');
 
+	$query = "SELECT *, UPPER(genre.nom) AS up_nom
+				FROM film, genre
+				WHERE genre.id_genre = film.id_genre";
+	if ($title !== null)
+	{
+		$query .= " AND film.titre LIKE :title";
+	}
+	if ($gender !== null)
+	{
+		$query .= " AND genre.nom = :gender";
+	}
+	if ($year !== null)
+	{
+		$query .= " AND film.annee_prod = :year";
+	}
+	if ($time !== null)
+	{
+		$query .= " AND film.duree_min <= :time";
+	}
+	if ($limit !== null)
+	{
+		$query .= " ORDER BY RAND() LIMIT :limit";
+	}
 	$req = $db->prepare($query);
+	if ($title !== null)
+	{
+		$req->bindValue(":title", "%".$title."%");
+	}
+	if ($gender !== null)
+	{
+		$req->bindValue(":gender", $gender);
+	}
+	if ($year !== null)
+	{
+		$req->bindValue(":year", $year);
+	}
+	if ($time !== null)
+	{
+		$req->bindValue(":time", $time);
+	}
+	if ($limit !== null)
+	{
+		$req->bindValue(":limit", (int) trim($limit), PDO::PARAM_INT);
+	}
 	$req->execute();
 
 	while ($data = $req->fetch()) {
 		$films[] = $data;
 	}
 	return $films;
-
 }

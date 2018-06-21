@@ -1,7 +1,7 @@
 		<body>
 			<div class="container full">
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-					<a class="navbar-brand" href="index.html"><img src="./img/planet-512.png" width="30" height="30" class="d-inline-block align-top" alt="">My Cinema</a>
+					<a class="navbar-brand" href="index.html"><img src="public/img/movie.png" width="30" height="30" class="d-inline-block align-top" alt="">My Cinema</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -9,7 +9,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="index.html">A l'affiche<span class="sr-only"></span></a>
+								<a class="nav-link" href="index.html">Top Films<span class="sr-only"></span></a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="films.html">Recherche</a>
