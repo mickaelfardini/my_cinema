@@ -33,12 +33,12 @@ function isConnected()
 }
 
 function getFilms($title = null, string $gender = null,
-	int $year = null, int $time = null,
-	int $limit = null, bool $rand = false)
+	$year = null, $time = null,
+	$limit = null, $offset = 0, bool $rand = false)
 {
 	global $db;
 	$films = array();
-
+	// var_dump($title,$gender,$year,$time,$limit);
 	$query = "SELECT *, UPPER(genre.nom) AS up_nom
 				FROM film, genre
 				WHERE genre.id_genre = film.id_genre";
@@ -64,7 +64,7 @@ function getFilms($title = null, string $gender = null,
 	}
 	if ($limit !== null)
 	{
-		$query .= " LIMIT :limit";
+		$query .= " LIMIT :limit OFFSET :offset";
 	}
 	$req = $db->prepare($query);
 	if ($title !== null)
@@ -86,6 +86,7 @@ function getFilms($title = null, string $gender = null,
 	if ($limit !== null)
 	{
 		$req->bindValue(":limit", (int) trim($limit), PDO::PARAM_INT);
+		$req->bindValue(":offset", (int) trim($offset), PDO::PARAM_INT);
 	}
 	$req->execute();
 

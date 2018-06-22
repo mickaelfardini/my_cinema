@@ -1,24 +1,22 @@
 <?php
 
-function checkPost(array $request)
+function checkPost(array $request, int $offset)
 {
-	$gender = $request['gender'];
-	$year = $request['year'];
-	$time = $request['time'];
+	$gender = ($request['gender'] == "") ? null : $request['gender'];
+	$time = ($request['time'] == "") ? null : $request['time'];
+	$year = ($request['year'] == "") ? null : $request['year'];
 
-	if ($gender == "")
-	{
-		$gender = null;
-	}
-	if ($year == "")
-	{
-		$year = null;
-	}
-	if ($time == "")
-	{
-		$time = null;
-	}
-	return getFilms($request['title'], $gender, $year, $time/*, $request['limit']*/);
+	$nbr_page = count(getFilms($request['title'], $gender, $year, $time));
+	return getFilms($request['title'], $gender, $year, $time, $request['limit'], $offset);
+}
+
+function countResult(array $request, int $offset = 0)
+{
+	$gender = ($request['gender'] == "") ? null : $request['gender'];
+	$time = ($request['time'] == "") ? null : $request['time'];
+	$year = ($request['year'] == "") ? null : $request['year'];
+
+	return count(getFilms($request['title'], $gender, $year, $time));
 }
 
 function getGender()

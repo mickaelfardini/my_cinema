@@ -53,10 +53,10 @@ include 'inc/banner.php';
 		</div>
 	</div>
 	<div class="container">
-		<?php var_dump($_GET);
-		if (!empty($_GET))
+		<?php //var_dump($_GET);
+		if (count($_GET) > 2)
 		{
-			$films = checkPost($_GET);?>
+			$films = checkPost($_GET, $offset);?>
 			<h2>Resultat :</h2>
 
 		<?php } else { ?>
@@ -87,13 +87,13 @@ include 'inc/banner.php';
 				<nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-center">
 						<li class="page-item <?php if($_GET['id'] <= 1) { ?>disabled<?php }?>">
-							<a class="page-link" href="films-<?=$_GET['id']-1;?>.html" tabindex="-1">Prev</a>
+							<a class="page-link" href="films-<?=$_GET['id']-1;?>.html?title=<?=$_GET['title'];?>&gender=<?=$_GET['gender'];?>&year=<?=$_GET['year'];?>&time=<?=$_GET['time'];?>&limit=<?=$_GET['limit'];?>" tabindex="-1">Prev</a>
 						</li>
-						<?php for($i = 1; $i == $nbr_page; $i++) {?>
-						<li class="page-item active"><a class="page-link" href="films-<?=$i?>.html"><?=$i?></a></li>
+						<?php for($i = 1; $i <= $nbr_page; $i++) {?>
+						<li class="page-item <?php if($i == $_GET['id']){?>active<?php }?>"><a class="page-link" href="films-<?=$i?>.html?title=<?=$_GET['title'];?>&gender=<?=$_GET['gender'];?>&year=<?=$_GET['year'];?>&time=<?=$_GET['time'];?>&limit=<?=$_GET['limit'];?>"><?=$i?></a></li>
 						<?php }?>
 						<li class="page-item <?php if($_GET['id'] >= $nbr_page) { ?>disabled<?php }?>">
-							<a class="page-link" href="films-<?=$i++;?>.html">Next</a>
+							<a class="page-link" href="films-<?=$i++;?>.html?title=<?=$_GET['title'];?>&gender=<?=$_GET['gender'];?>&year=<?=$_GET['year'];?>&time=<?=$_GET['time'];?>&limit=<?=$_GET['limit'];?>">Next</a>
 						</li>
 					</ul>
 				</nav>
