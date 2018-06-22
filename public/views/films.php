@@ -9,7 +9,7 @@ include 'inc/banner.php';
 	<div class="container">
 		<div class="container bg-secondary text-white rounded">
 			<h1>Recherche</h1>
-			<form action="films.html" method="POST" role="form">
+			<form action="" method="GET" role="form">
 				<div class="form-row">
 					<div class="form-group col-6">
 						<label for="SearchFilm">Film</label>
@@ -21,8 +21,8 @@ include 'inc/banner.php';
 							<option selected value="">Genre</option>
 							<?php foreach ($gender as $key)
 							{ ?>
-							<option value="<?=$key['nom']?>"><?=$key['nom']?></option>
-						<?php } ?>
+								<option value="<?=$key['nom']?>"><?=$key['nom']?></option>
+							<?php } ?>
 						</select>
 					</div>
 				</div>
@@ -53,9 +53,10 @@ include 'inc/banner.php';
 		</div>
 	</div>
 	<div class="container">
-		<?php if (!empty($_POST))
-		{ 
-			$films = checkPost($_POST);?>
+		<?php var_dump($_GET);
+		if (!empty($_GET))
+		{
+			$films = checkPost($_GET);?>
 			<h2>Resultat :</h2>
 
 		<?php } else { ?>
@@ -63,7 +64,7 @@ include 'inc/banner.php';
 		<?php } ?>
 		<div class="row">
 			<?php
-			echo "<pre> " . var_export($_GET, true) . "</pre>";
+			// echo "<pre> " . var_export($_GET, true) . "</pre>";
 			foreach ($films as $key)
 				{?>
 					<div class="col-xs-12 col-sm-6 col-md-4">
@@ -79,6 +80,24 @@ include 'inc/banner.php';
 						</div>
 					</div>
 				<?php } ?>
+			</div>
+			<hr class="my-4">
+			<div class="row">
+				<div class="container">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center">
+						<li class="page-item <?php if($_GET['id'] <= 1) { ?>disabled<?php }?>">
+							<a class="page-link" href="films-<?=$_GET['id']-1;?>.html" tabindex="-1">Prev</a>
+						</li>
+						<?php for($i = 1; $i == $nbr_page; $i++) {?>
+						<li class="page-item active"><a class="page-link" href="films-<?=$i?>.html"><?=$i?></a></li>
+						<?php }?>
+						<li class="page-item <?php if($_GET['id'] >= $nbr_page) { ?>disabled<?php }?>">
+							<a class="page-link" href="films-<?=$i++;?>.html">Next</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 			</div>
 		</div>
 	</body>

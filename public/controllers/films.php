@@ -3,7 +3,11 @@
 include(dirname(__FILE__) . '/../models/films.php');
 $films = getFilms(null,null,null,null,9, true);
 $gender = getGender();
-include(dirname(__FILE__) . '/../views/films.php');
+
+if (!empty($_POST))
+{ 
+	$films = checkPost($_POST);
+}
 
 $nbr_page = ceil(count($films) / 10);
-echo $nbr_page;
+include(dirname(__FILE__) . '/../views/films.php');
