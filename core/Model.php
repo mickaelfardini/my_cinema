@@ -34,7 +34,7 @@ function isConnected()
 
 function getFilms($title = null, string $gender = null,
 	$year = null, $time = null,
-	$limit = null, $offset = 0, bool $rand = false)
+	$limit = null, $offset = null, bool $rand = false)
 {
 	global $db;
 	$films = array();
@@ -64,7 +64,11 @@ function getFilms($title = null, string $gender = null,
 	}
 	if ($limit !== null)
 	{
-		$query .= " LIMIT :limit OFFSET :offset";
+		$query .= " LIMIT :limit";
+	}
+	if ($offset !== null)
+	{
+		$query .= " OFFSET :offset";
 	}
 	$req = $db->prepare($query);
 	if ($title !== null)
@@ -86,6 +90,9 @@ function getFilms($title = null, string $gender = null,
 	if ($limit !== null)
 	{
 		$req->bindValue(":limit", (int) trim($limit), PDO::PARAM_INT);
+	}
+	if ($limit !== null)
+	{
 		$req->bindValue(":offset", (int) trim($offset), PDO::PARAM_INT);
 	}
 	$req->execute();

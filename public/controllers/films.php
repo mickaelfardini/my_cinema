@@ -11,7 +11,6 @@ if (count($_GET) > 2)
 		$_GET['id'] = "1";
 	}
 	$offset = ($_GET['id'] -1) * $_GET['limit'];
-
 	$films = checkPost($_GET, $offset);
 	$nbr_page = ceil(countResult($_GET) / $_GET['limit']);
 }
