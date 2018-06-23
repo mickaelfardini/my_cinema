@@ -42,7 +42,7 @@ include('inc/banner.php');
 							</tbody>
 						</table>
 						<?php
-						if (isset($_POST) AND $_POST != NULL) {
+						if (isset($_POST) && $_POST != NULL) {
 							delete((array_keys($_POST)));
 						}
 					}
