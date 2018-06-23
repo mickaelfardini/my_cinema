@@ -1,3 +1,6 @@
+<?php
+if (count($_GET) > 2)
+{?>
 <div class="row">
 	<div class="container">
 		<nav aria-label="Page navigation example">
@@ -15,3 +18,4 @@
 		</nav>
 	</div>
 </div>
+<?php }?>
