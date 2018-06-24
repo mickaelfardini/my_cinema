@@ -1,6 +1,3 @@
-<?php
-if (count($_GET) > 2)
-{?>
 <div class="row">
 	<div class="container">
 		<nav aria-label="Page navigation example">
@@ -18,4 +15,3 @@ if (count($_GET) > 2)
 		</nav>
 	</div>
 </div>
-<?php }?>
