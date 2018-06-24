@@ -4,16 +4,14 @@ include 'inc/navbar.php';
 include 'inc/banner.php';
 ?>
 
-<html>
-<body>
 	<div class="container">
 		<div class="container bg-secondary text-white rounded">
 			<h1>Recherche</h1>
-			<form action="" method="GET" role="form">
+			<form action="index.html" method="GET">
 				<div class="form-row">
 					<div class="form-group col-6">
 						<label for="SearchFilm">Film</label>
-						<input type="text" class="form-control" name="title" id="SearchFilm" aria-describedby="Rechercher un film" placeholder="Ex : Goodfellas ...">
+						<input type="text" class="form-control" name="title" id="SearchFilm" placeholder="Ex : Goodfellas ...">
 					</div>
 					<div class="form-group col-6">
 						<label for="inputGender">Genre</label>
@@ -35,7 +33,7 @@ include 'inc/banner.php';
 					</div>
 					<div class="form-group col-4">
 						<label for="inputTime">Duree</label>
-						<input type="text" class="form-control" name="time" id="inputTime" aria-describedby="Duree en minute du film" value="" placeholder="Ex : 90">
+						<input type="text" class="form-control" name="time" id="inputTime" value="" placeholder="Ex : 90">
 					</div>
 					<div class="form-group col-4">
 						<label for="getNbr">Limite par page</label>
@@ -76,7 +74,7 @@ include 'inc/banner.php';
 							<!--<div class="card-header">
 								<?= $key['up_nom'] . " - <i>" . $key['duree_min'] . " min</i>"; ?>
 							</div> -->
-							<img src="<?=$img;?>">
+							<img alt="<?=$key['titre'];?>" src="<?=$img;?>">
 							<div class="card-body">
 								<h5 class="card-title text-truncate"><?= $key['titre']; ?></h5>
 								<p class="card-text text-truncate"><?= $key['resum']; ?></p>
@@ -90,9 +88,6 @@ include 'inc/banner.php';
 			<?php include 'inc/pagination.php'; ?>
 		</div>
 		<script src="public/inc/pagination.js"></script>
-	</body>
-	</html>
-
 	<?php
 	include 'inc/footer.php';
 	?>

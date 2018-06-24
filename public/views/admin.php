@@ -28,15 +28,15 @@ include('inc/banner.php');
 				foreach ($films as $key) {
 					?>
 					<tr>
-						<th scope="row"><?php echo $key['id_film']; ?></th>
-						<td><?php echo $key['titre']; ?></td>
-						<td><?php echo $key['resum']; ?></td>
+						<th scope="row"><?=$key['id_film'];?></th>
+						<td><?=$key['titre'];?></td>
+						<td><?=$key['resum'];?></td>
 						<td>
-							<form method="post" action="">
-								<button type="submit" class="btn btn-primary" name="<?php echo $key['id_film']; ?>" id="<?php echo $key['id_film']; ?>">Delete</button></form></td>
+							<form method="post" action="admin.html">
+								<button type="submit" class="btn btn-primary" name="<?=$key['id_film'];?>">Delete</button></form></td>
 								<td>
 									<form method="post" action="edit.html">
-										<button type="submit" class="btn btn-primary" name="<?php echo $key['id_film']; ?>" id="<?php echo $key['id_film']; ?>">Edit</button></form></td>
+										<button type="submit" class="btn btn-primary" name="<?=$key['id_film'];?>">Edit</button></form></td>
 									</tr>
 								<?php } ?>
 							</tbody>

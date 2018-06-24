@@ -20,21 +20,21 @@ if (isset($_COOKIE['username'])) {
 					header('Location: index.html');
 				}else{ echo "Username ou Mot de passe incorrect";	}
 			} ?>
-			<form action="" method="POST" class="mb-5">
+			<form method="POST" class="mb-5">
 
 				<div class="col-md-4 mb-3">
 					
 				</div>
 				<div class="form-group row">
-					<label for="loginform" class="col-sm-2 col-form-label">Username</label>
+					<label for="loginUser" class="col-sm-2 col-form-label">Username</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="username" placeholder="Username">
+						<input type="text" class="form-control" id="loginUser" name="username" placeholder="Username">
 					</div>
 				</div>
 				<div class="form-group row">
-					<label for="loginform" class="col-sm-2 col-form-label">Password</label>
+					<label for="loginPwd" class="col-sm-2 col-form-label">Password</label>
 					<div class="col-sm-4">
-						<input type="password" class="form-control" name="password" placeholder="Password">
+						<input type="password" class="form-control" id="loginPwd" name="password" placeholder="Password">
 					</div>
 				</div>
 				<div class=""> 

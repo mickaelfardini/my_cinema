@@ -14,20 +14,20 @@ if (isset($_COOKIE['username'])) {
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<h2>Enregistrement</h2>
-			<form action="" method="POST" class="mb-5">
+			<form method="POST" class="mb-5">
 				<div class="form-group">
 					<label for="InputUser">Identifiant</label>
-					<input type="text" class="form-control" name="username" placeholder="Username">
+					<input type="text" class="form-control" id="InputUser" name="username" placeholder="Username">
 				</div>
 
 				<div class="form-group">
 					<label for="InputPswd">Mot de Passe</label>
-					<input type="password" class="form-control" name="password" placeholder="Password">
+					<input type="password" class="form-control" id="InputPswd" name="password" placeholder="Password">
 				</div>
 
 				<div class="form-group">
 					<label for="InputPswd2">Mot de Passe</label>
-					<input type="password" class="form-control" name="password2" placeholder="Retype your password">
+					<input type="password" class="form-control" id="InputPswd2" name="password2" placeholder="Retype your password">
 				</div>
 				<input type="submit" class="btn btn-primary" />
 			</form>
