@@ -3,7 +3,6 @@
 include(dirname(__FILE__) . '/../models/films.php');
 $films = getFilms(null, null, null, null, 9, 0, true);
 $gender = getGender();
-
 if (count($_GET) > 2)
 {
 	if (!isset($_GET['id']))

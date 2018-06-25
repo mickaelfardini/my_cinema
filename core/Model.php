@@ -56,7 +56,8 @@ function getFilms($title = null, string $gender = null,
 	}
 	if ($time !== null)
 	{
-		$query .= " AND film.duree_min <= :time";
+		$query .= " AND film.date_debut_affiche <= :time AND film.date_fin_affiche >= :time";
+		// date date date date
 	}
 	if ($rand !== false)
 	{
