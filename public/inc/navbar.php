@@ -26,8 +26,11 @@
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown"> <?php
 								if(isAdmin($_COOKIE['username'])) { ?>
 								<a class="dropdown-item" href="admin.html">Admin</a> <?php } ?>
-								<a class="dropdown-item" href="#">Another action</a>
+								<?php
+								if(isAdmin($_COOKIE['username'])) { ?>
+								<a class="dropdown-item" href="members.html">Membres</a> <?php } ?>
 								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Another action</a>
 							</div>
 						</li> <?php } ?>
 						</ul>
