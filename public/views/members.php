@@ -48,8 +48,8 @@ include('inc/banner.php');
 						foreach ($member as $key) { ?>
 							<form method="post">
 								<div class="form-group">
-									<label for="id_film">ID :</label>
-									<input type="text" class="form-control disabled" id="id_film" name="id_film" value="<?=$key['id_membre'];?>">
+									<label for="id_membre">ID :</label>
+									<input type="text" class="form-control disabled" id="id_membre" name="id_membre" value="<?=$key['id_membre'];?>">
 								</div>
 								<div class="form-row">
 									<div class="form-group col-6">
@@ -87,11 +87,9 @@ include('inc/banner.php');
 					</div>
 
 					<?php
-					if(isset($_POST["resum"]) && isset($_POST["titre"]))
+					if(!empty($_POST))
 					{
-						$postArray = array($_POST['titre'], $_POST['resum'], $_POST['id_film']);
-						updateEdit($postArray);
-						// A faire en rentrant
+						updateMember($_POST);
 					}
 					?>
 					<?php
