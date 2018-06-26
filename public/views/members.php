@@ -54,31 +54,31 @@ include('inc/banner.php');
 								<div class="form-row">
 									<div class="form-group col-6">
 										<label for="nom">Nom :</label>
-										<input type="text" class="form-control" id="titre" name="nom" value="<?=$key['nom'];?>">
+										<input type="text" class="form-control" id="nom" name="nom" value="<?=$key['nom'];?>">
 									</div>
 									<div class="form-group col-6">
 										<label for="prenom">Prenom :</label>
-										<input type="text" class="form-control" id="titre" name="prenom" value="<?=$key['prenom'];?>">
+										<input type="text" class="form-control" id="prenom" name="prenom" value="<?=$key['prenom'];?>">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-6">
 										<label for="email">E-mail :</label>
-										<input type="text" class="form-control" id="titre" name="email" value="<?=$key['email'];?>">
+										<input type="text" class="form-control" id="email" name="email" value="<?=$key['email'];?>">
 									</div>
 									<div class="form-group col-6">
 										<label for="id_abo">Abonnement :</label>
-										<input type="text" class="form-control" id="titre" name="id_abo" value="<?=$key['id_abo'];?>">
+										<input type="text" class="form-control" id="id_abo" name="id_abo" value="<?=$key['id_abo'];?>">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-6">
 										<label for="ville">Ville :</label>
-										<input type="text" class="form-control" id="titre" name="ville" value="<?=$key['ville'];?>">
+										<input type="text" class="form-control" id="ville" name="ville" value="<?=$key['ville'];?>">
 									</div>
 									<div class="form-group col-6">
 										<label for="cpostal">Code Postal :</label>
-										<input type="text" class="form-control" id="titre" name="cpostal" value="<?=$key['cpostal'];?>">
+										<input type="text" class="form-control" id="cpostal" name="cpostal" value="<?=$key['cpostal'];?>">
 									</div>
 								</div>
 								<button type="submit" class="btn btn-primary">Envoyer</button>
