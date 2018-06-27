@@ -9,6 +9,11 @@ include('inc/banner.php');
 ?>
 
 <div class="container">
+<div class="container rounded">
+			<div class="form-group offset-9 col-3">
+				<input type="text" class="form-control" name="search" id="SearchMember" placeholder="ID, Firstname, Lastname">
+			</div>
+</div>
 
 	<?php
 	if (isConnected() && isAdmin($_COOKIE['username'])) {
@@ -20,7 +25,7 @@ include('inc/banner.php');
 							<th scope="col">#</th>
 							<th scope="col">Nom</th>
 							<th scope="col">Prenom</th>
-							<th scope="col">Abonement</th>
+							<th scope="col">Abonnement</th>
 							<th scope="col">Edit</th>
 						</tr>
 					</thead>
@@ -28,7 +33,7 @@ include('inc/banner.php');
 						<?php
 						foreach ($members as $key) {
 							?>
-							<tr>
+							<tr id="#<?=$key['id_membre'];?>">
 								<th scope="row"><?=$key['id_membre'];?></th>
 								<td><?=$key['nom'];?></td>
 								<td><?=$key['prenom'];?></td>

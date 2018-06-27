@@ -8,3 +8,8 @@ function delete(array $request)
 	$query->bindParam(':id', $request[0]);
 	$query->execute();
 }
+
+function countResult(array $request, int $offset = 0)
+{
+	return count(getFilms(null, null, null, null));
+}

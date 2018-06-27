@@ -9,7 +9,8 @@ function getMembers($id = null)
 	JOIN fiche_personne 
 	ON membre.id_fiche_perso = fiche_personne.id_perso
 	JOIN abonnement
-	ON membre.id_abo = abonnement.id_abo";
+	ON membre.id_abo = abonnement.id_abo
+	AND abonnement.id_abo = abonnement.id_abo";
 	$query .= $id == null ? "" : " WHERE membre.id_membre = :id";
 
 	$req = $db->prepare($query . " ORDER BY id_membre ASC");

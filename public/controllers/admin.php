@@ -1,16 +1,12 @@
 <?php
 
 include(dirname(__FILE__) . '/../models/admin.php');
-$films = getFilms(null, null, null, null, 9, 0, true);
-
-if (count($_GET) > 2)
-{
+var_dump($_GET);
 	if (!isset($_GET['id']))
 	{
 		$_GET['id'] = "1";
 	}
-	$offset = ($_GET['id'] -1) * $_GET['limit'];
-	$films = checkPost($_GET, $offset);
-	$nbr_page = ceil(countResult($_GET) / $_GET['limit']);
-}
+	$offset = ($_GET['id'] -1) * 10;
+	$films = getFilms(null, null, null, null, 10, $offset, false);
+	$nbr_page = ceil(countResult($_GET) / 10);
 include(dirname(__FILE__) . '/../views/admin.php');
