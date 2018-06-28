@@ -90,7 +90,8 @@ include('inc/banner.php');
 							</form>
 						<?php }}}?>
 					</div>
-
+				<script src="public/inc/search.js"></script>
+					
 					<?php
 					if(!empty($_POST))
 					{
