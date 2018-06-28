@@ -18,7 +18,7 @@ include 'inc/banner.php';
 					<img alt="<?=$key['titre'];?>" src="<?=$img;?>">
 					<hr class="my-4">
 					<p><?= $key['resum']?></p>
-					<a class="btn btn-primary btn-lg" href="#" role="button">Voir la fiche</a>
+					<a class="btn btn-primary btn-lg" href="film.html?film=<?=$key['id_film']?>" role="button">Voir la fiche</a>
 				</div>
 			<?php } ?>
 		</div>

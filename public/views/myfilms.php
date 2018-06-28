@@ -24,7 +24,7 @@ include 'inc/banner.php';
 							<div class="card-body">
 								<h5 class="card-title text-truncate"><?= $key['titre']; ?></h5>
 								<p class="card-text text-truncate"><?= $key['resum']; ?></p>
-								<a href="#" class="btn btn-primary">Read More</a>
+								<a class="btn btn-primary btn-lg" href="film.html?film=<?=$key['id_film']?>" role="button">Voir la fiche</a>
 							</div>
 						</div>
 					</div>

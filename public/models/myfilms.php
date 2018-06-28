@@ -40,16 +40,3 @@ function getHistory($username, $limit = null, $offset = null)
 	};
 	return $films;
 }
-
-function getUserId($username)
-{
-	global $db;
-
-	$req = $db->prepare(
-		"SELECT id FROM users
-		WHERE name = :username");
-	$req->bindValue(":username", $username);
-	$req->execute();
-
-	return $req->fetch();
-}

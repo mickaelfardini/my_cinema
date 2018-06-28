@@ -1,7 +1,6 @@
 <?php
 
 include(dirname(__FILE__) . '/../models/admin.php');
-var_dump($_GET);
 	if (!isset($_GET['id']))
 	{
 		$_GET['id'] = "1";
