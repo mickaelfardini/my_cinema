@@ -28,8 +28,8 @@ include 'inc/banner.php';
 			<?php if ($comments) { ?>
 			<table>
 				<?php foreach ($comments as $avis) { ?>
-				<h5><b>Avis</b> :</h5>
 					<tr>
+				<th><b>Avis</b> :</th>
 						<td><?= $avis['content'] ?></td>
 					</tr>
 				<?php } ?>
@@ -47,8 +47,8 @@ include 'inc/banner.php';
 						<textarea name="avis" class="form-control" id="Avis" rows="4"></textarea>
 					</div>
 					<div class="form-group form-check">
-						<input name="viewed" type="checkbox" class="form-check-input" id="exampleCheck1">
-						<label class="form-check-label" for="viewed">J'ai vu ce film</label>
+						<input name="viewed" type="checkbox" class="form-check-input" id="viewed">
+						<label class="viewed" for="viewed">J'ai vu ce film</label>
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
