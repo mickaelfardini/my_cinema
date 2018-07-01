@@ -9,8 +9,8 @@ function register(array $request)
 	}
 	$hash = password_hash($request[1], PASSWORD_DEFAULT);
 	
-	$query = $db->prepare('INSERT INTO users (name, password) VALUES(:user, :pass)');
-	$query->bindParam(':user', $request[0]);
-	$query->bindParam(':pass', $hash);
-	$query->execute();
+	$req = $db->prepare('INSERT INTO users (name, password) VALUES(:user, :pass)');
+	$req->bindParam(':user', $request[0]);
+	$req->bindParam(':pass', $hash);
+	$req->execute();
 }

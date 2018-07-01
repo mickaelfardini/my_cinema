@@ -34,19 +34,3 @@ function getGender()
 
 	return $gender;
 }
-
-function getCount()
-{
-	global $db;
-	$count = array();
-
-	$req = $db->prepare();
-	$req->execute();
-
-	while ($data = $req->fetch())
-	{
-		$count[] = $data;
-	}
-
-	return $count;
-}

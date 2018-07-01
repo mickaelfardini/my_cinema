@@ -37,71 +37,51 @@ function getFilms($title = null, string $gender = null,
 	$limit = null, $offset = null, bool $rand = false)
 {
 	global $db;
-	$films = array();
-	// var_dump($title,$gender,$year,$time,$limit);
 	$query = "SELECT *, UPPER(genre.nom) AS up_nom
 				FROM film, genre
 				WHERE genre.id_genre = film.id_genre";
-	if ($title !== null)
-	{
+	if ($title !== null) {
 		$query .= " AND film.titre LIKE :title";
 	}
-	if ($gender !== null)
-	{
+	if ($gender !== null) {
 		$query .= " AND genre.nom = :gender";
 	}
-	if ($year !== null)
-	{
+	if ($year !== null) {
 		$query .= " AND film.annee_prod = :year";
 	}
-	if ($time !== null)
-	{
+	if ($time !== null)	{
 		$query .= " AND film.date_debut_affiche <= :time AND film.date_fin_affiche >= :time";
-		// date date date date
 	}
-	if ($rand !== false)
-	{
+	if ($rand !== false) {
 		$query .= " ORDER BY RAND()";
 	}
-	if ($limit !== null)
-	{
+	if ($limit !== null) {
 		$query .= " LIMIT :limit";
 	}
-	if ($offset !== null)
-	{
+	if ($offset !== null) {
 		$query .= " OFFSET :offset";
 	}
 	$req = $db->prepare($query);
-	if ($title !== null)
-	{
+	if ($title !== null) {
 		$req->bindValue(":title", "%".$title."%");
 	}
-	if ($gender !== null)
-	{
+	if ($gender !== null) {
 		$req->bindValue(":gender", $gender);
 	}
-	if ($year !== null)
-	{
+	if ($year !== null) {
 		$req->bindValue(":year", $year);
 	}
-	if ($time !== null)
-	{
+	if ($time !== null) {
 		$req->bindValue(":time", $time);
 	}
-	if ($limit !== null)
-	{
+	if ($limit !== null) {
 		$req->bindValue(":limit", (int) trim($limit), PDO::PARAM_INT);
 	}
-	if ($limit !== null)
-	{
+	if ($limit !== null) {
 		$req->bindValue(":offset", (int) trim($offset), PDO::PARAM_INT);
 	}
 	$req->execute();
-
-	while ($data = $req->fetch()) {
-		$films[] = $data;
-	}
-	return $films;
+	return $req->fetchAll();
 }
 
 function getPoster($title)
@@ -116,7 +96,7 @@ function getPoster($title)
 function getUserId($username)
 {
 	global $db;
-
+	
 	$req = $db->prepare(
 		"SELECT id FROM users
 		WHERE name = :username");

@@ -26,26 +26,25 @@ function getMembers($id = null)
 function updateMember(array $request)
 {
 	global $db;
-
-	$query = $db->prepare('UPDATE membre
+	$req = $db->prepare('UPDATE membre
 		SET id_abo = :abo
 		WHERE id_membre = :id');
-	$query->bindParam(':abo', $request['id_abo']);
-	$query->bindParam(':id', $request['id_membre']);
-	$query->execute();
+	$req->bindParam(':abo', $request['id_abo']);
+	$req->bindParam(':id', $request['id_membre']);
+	$req->execute();
 
-	$query = $db->prepare('UPDATE fiche_personne
+	$req = $db->prepare('UPDATE fiche_personne
 		SET prenom = :prenom,
 			nom = :nom,
 			email = :email,
 			cpostal = :cpostal,
 			ville = :ville
 		WHERE id_perso = :id');
-	$query->bindParam(':prenom', $request['prenom']);
-	$query->bindParam(':nom', $request['nom']);
-	$query->bindParam(':email', $request['email']);
-	$query->bindParam(':cpostal', $request['cpostal']);
-	$query->bindParam(':ville', $request['ville']);
-	$query->bindParam(':id', $request['id_membre']);
-	$query->execute();
+	$req->bindParam(':prenom', $request['prenom']);
+	$req->bindParam(':nom', $request['nom']);
+	$req->bindParam(':email', $request['email']);
+	$req->bindParam(':cpostal', $request['cpostal']);
+	$req->bindParam(':ville', $request['ville']);
+	$req->bindParam(':id', $request['id_membre']);
+	$req->execute();
 }
