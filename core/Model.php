@@ -29,10 +29,11 @@ function isConnected()
 	}
 }
 
-function queryFilm($title = null, string $gender = null,
+function getFilms($title = null, string $gender = null,
 	$year = null, $time = null,
-	$limit = null, $offset = null, bool $rand = false)
+	$limit = null, $offset = null, $rand = false)
 {
+	global $db;
 	$query = "SELECT *, UPPER(genre.nom) AS up_nom
 	FROM film, genre
 	WHERE genre.id_genre = film.id_genre";
@@ -58,13 +59,6 @@ function queryFilm($title = null, string $gender = null,
 	if ($offset !== null) {
 		$query .= " OFFSET :offset";
 	}
-}
-function getFilms($title = null, string $gender = null,
-	$year = null, $time = null,
-	$limit = null, $offset = null, $rand = false)
-{
-	global $db;
-	$query = queryFilm($film, $gender, $year, $time, $limit, $offset, $rand);
 	$req = $db->prepare($query);
 	if ($title !== null) {
 		$req->bindValue(":title", "%".$title."%");
